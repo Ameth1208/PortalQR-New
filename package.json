@@ -11,6 +11,7 @@
   "devDependencies": {
     "@builder.io/qwik": "0.16.2",
     "@builder.io/qwik-city": "0.0.128",
+    "@rollup/plugin-commonjs": "^23.0.7",
     "@types/eslint": "8.4.10",
     "@types/node": "^18.11.18",
     "@types/node-fetch": "latest",
@@ -23,8 +24,7 @@
     "typescript": "4.9.4",
     "undici": "5.14.0",
     "vite": "4.0.3",
-    "vite-tsconfig-paths": "3.5.0",
-    "@rollup/plugin-commonjs": "^23.0.7"
+    "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
     "kleur": "^4.1.5",

@@ -1,28 +1,20 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { component$ } from "@builder.io/qwik";
+import { QR } from "~/components/qr/qr";
+import { Instructions } from "~/components/instructions/instructions";
 
-
-import style from "./index.css?inline";
+import './index.css'
 
 export default component$(() => {
-  useStylesScoped$(style);
 
   return (
-    <div class={"page"}>
-      <div class={"qr-section intructions"}>
-        <h1>Whatsapp QR</h1>
-        <p>Escanee el codigo QR, para darle acceso al bot</p>
+
+    <div class={"container"}>
+      <div class={"page-QR"}>
+        <QR />
+        <Instructions />
       </div>
+
     </div>
   );
 });
 
-export const head: DocumentHead = {
-  title: "📊 WhatBot QR",
-  meta: [
-    {
-      name: "description",
-      content: "📊 WhatBot QR",
-    },
-  ],
-};

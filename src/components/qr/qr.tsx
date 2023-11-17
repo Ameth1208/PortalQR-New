@@ -1,8 +1,9 @@
-import { component$, useClientEffect$, useStore, useStylesScoped$ } from '@builder.io/qwik'
-import style from './qr.css?inline'
+import { component$, useClientEffect$, useStore } from '@builder.io/qwik'
+import './qr.css'
+import qr from './../../assets/bot.qr.png'
 
 export const QR = component$(() => {
-    useStylesScoped$(style)
+
     const state = useStore({
         count: 0,
     })
@@ -14,8 +15,9 @@ export const QR = component$(() => {
     })
 
     return (
-        <div>
-            <img width={350} height={350} src={'qr.png?time=' + state.count} alt="QR" />
+        <div class={"qr"}>
+            <img width={350} height={350} src={qr} alt="QR" />
+            {/* <img width={350} height={350} src={'qr.png?time=' + state.count} alt="QR" /> */}
         </div>
     )
 })

@@ -1,4 +1,8 @@
-div img {
+.qr {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  & img {
     display: block;
     background-color: #f0f0f0;
     min-width: 250px;
@@ -7,21 +11,11 @@ div img {
     max-width: 300px;
     object-fit: contain;
     border-radius: 10px;
-
+  }
 }
 
-div {
-    display: flex;
-    justify-content: center;
-    margin: 0 5vw;
-}
-
-@media (max-width : 40rem) {
-    div {
-        display: flex;
-        justify-content: center;
-        margin: 5vw 5vw;
-
-    }
-
+@media (max-width: 40rem) {
+  .qr {
+    /* margin: 5vw 5vw; */
+  }
 }
