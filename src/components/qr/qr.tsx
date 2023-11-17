@@ -16,8 +16,8 @@ export const QR = component$(() => {
 
     return (
         <div class={"qr"}>
-            <img width={350} height={350} src={qr} alt="QR" />
-            {/* <img width={350} height={350} src={'qr.png?time=' + state.count} alt="QR" /> */}
+            {/* <img width={350} height={350} src={qr} alt="QR" /> */}
+            <img width={350} height={350} src={'qr.png?time=' + state.count} alt="QR" />
         </div>
     )
 })
