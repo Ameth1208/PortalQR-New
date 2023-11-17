@@ -27,7 +27,6 @@ export const NavBar = (() => {
 
       </div>
       <div class={"nav-links"}>
-
         <NavLinkIcon text="642" link="https://app.codigoencasa.com/courses" icon={<Discord />} />
       </div>
     </nav>

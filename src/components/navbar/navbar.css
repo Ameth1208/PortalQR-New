@@ -1,9 +1,12 @@
 .navbar {
   margin: 10px;
-  display: flex;
-  align-items: center;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  /* align-items: center;
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-between; */
 
   & .logo {
     & a {
