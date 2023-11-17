@@ -1,7 +1,7 @@
 
 import { NavLink, NavLinkIcon } from "../navlink/navlink";
 import "./navbar.css";
-import logo from "./../../assets/logo.png";
+import logo from "./../../assets/logo.svg";
 import { Course, Discord, Documetation, Github, Youtube } from "../icons/icons";
 
 

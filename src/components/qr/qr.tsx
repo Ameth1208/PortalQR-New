@@ -1,6 +1,6 @@
 import { component$, useClientEffect$, useStore } from '@builder.io/qwik'
 import './qr.css'
-import qr from './../../assets/bot.qr.png'
+// import qr from './../../assets/bot.qr.png'
 
 export const QR = component$(() => {
 

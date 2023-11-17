@@ -17,6 +17,7 @@ export default component$(() => {
         <QwikCityProvider>
             <head>
                 <meta charSet="utf-8" />
+
                 <link rel="preconnect" href="https://rsms.me/" />
                 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
                 <RouterHead />

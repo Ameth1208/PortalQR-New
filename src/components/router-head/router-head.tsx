@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { useDocumentHead, useLocation } from "@builder.io/qwik-city";
 
-import favicon from "./../../assets/favicon.png";
+import favicon from "./../../assets/logo.svg";
 
 export const RouterHead = component$(() => {
   const head = useDocumentHead();
