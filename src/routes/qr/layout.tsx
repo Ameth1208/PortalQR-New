@@ -1,21 +1,19 @@
 import { Slot, component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Footer } from "~/components/footer/footer";
+import { NavBar } from "~/components/navbar/navbar";
+
+
+
 
 export default component$(() => {
   return (
     <>
-
+      <NavBar />
       <Slot />
+      <Footer />
     </>
   );
 });
 
-export const head: DocumentHead = {
-  title: "📊 WhatBot QR",
-  meta: [
-    {
-      name: "description",
-      content: "📊 WhatBot QR",
-    },
-  ],
-};
+
