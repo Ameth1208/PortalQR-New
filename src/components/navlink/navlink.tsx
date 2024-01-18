@@ -15,9 +15,18 @@ export const NavLink = (props: NavLinkProps) => {
 
 export const NavLinkIcon = (props: NavLinkProps) => {
   return (
-    <Link href={props.link} class="navlink" title={props.text}>
-      <div class={"view-icons"}>{props.icon}</div>
-      <p class={"select-none m-2 font-semibold"}>{props.text}</p>
-    </Link>
+    <>
+      {!props.external ? (
+        <Link href={props.link} class="navlink" title={props.text}>
+          <div class={"view-icons"}>{props.icon}</div>
+          <p class={"select-none m-2 font-semibold"}>{props.text}</p>
+        </Link>
+      ) : (
+        <a href={props.link} class="navlink" target="_blank" title={props.text}>
+          <div class={"view-icons"}>{props.icon}</div>
+          <p class={"select-none m-2 font-semibold"}>{props.text}</p>
+        </a>
+      )}
+    </>
   );
 };

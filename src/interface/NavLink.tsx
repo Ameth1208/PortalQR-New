@@ -4,4 +4,5 @@ export default interface NavLinkProps {
     link?: string;
     text?: string;
     icon?: JSX.Element | JSX.Element[];
+    external?: boolean;
 }

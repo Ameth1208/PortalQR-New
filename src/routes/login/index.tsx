@@ -1,43 +1,41 @@
 import { $, component$, useStore } from "@builder.io/qwik";
-import { useNavigate } from "@builder.io/qwik-city";
-import { Mail } from "~/components/icons/icons";
 
 import { Logo } from "~/components/logo/logo";
 // import './styles.css'
 import { TextInput } from "~/components/text-input/text-input";
 
+interface LoginFormState {
+  email: string;
+  password: string;
+}
+
 export default component$(() => {
-  const state = useStore({
+  const state = useStore<LoginFormState>({
     email: "",
     password: "",
-    errorMessage: "",
   });
 
-  const validateEmail = (email: string): boolean => {
-    const re =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email.toLowerCase());
-  };
+  const handleSubmit = $((event: Event) => {
+    event.preventDefault();
+    console.log(state);
 
-  const handleSignIn = () => {
-    if (!validateEmail(state.email)) {
-      state.errorMessage = "Please enter a valid email address.";
-      return;
+    if (
+      state.email === import.meta.env.AUTH_MAIL &&
+      state.password === import.meta.env.AUTH_PASS
+    ) {
+      window.location.href = "/qr";
     }
-    if (state.password.length < 8) {
-      state.errorMessage = "Password must be at least 8 characters long.";
-      return;
-    }
-
-    window.location.href = "/qr";
-  };
+  });
 
   return (
     <div class="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
       <div class="relative py-3 sm:max-w-xs sm:mx-auto">
         <div class="px-8 py-6 mt-4 text-left bg-white  rounded-xl shadow-lg">
           <div class="flex flex-col items-center justify-center gap-2">
-            <div class="w-16 bg-gradient-to-b from-transparent to-[#F8F8F888] border-1 border-custom-gray shadow-custom rounded-xl justify-center items-center flex">
+            <div
+              class="w-16 bg-gradient-to-b from-transparent to-[#F8F8F888] border-1 border-custom-gray shadow-custom rounded-xl justify-center items-center flex"
+              onClick$={() => (window.location.href = "/")}
+            >
               <Logo width="w-full p-3" />
             </div>
             <p class="m-0 text-[16px] font-semibold">Login to your Account</p>
@@ -46,16 +44,22 @@ export default component$(() => {
             </span>
           </div>
 
-          <form action="#">
+          <form onSubmit$={handleSubmit}>
             <div class="mt-4">
               <TextInput
                 label="E-mail"
+                name="email"
+                type="email"
+                value={state.email}
                 onInput$={(event: InputEvent) => {
                   state.email = (event.target as HTMLInputElement).value;
                 }}
               />
               <TextInput
                 label="Password"
+                name="password"
+                type="password"
+                value={state.password}
                 onInput$={(event: InputEvent) => {
                   state.password = (event.target as HTMLInputElement).value;
                 }}

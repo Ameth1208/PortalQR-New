@@ -10,6 +10,9 @@ const PUBLIC_URL =
   process.env.RAILWAY_STATIC_URL ??
   "http://localhost";
 
+const AUTH_MAIL = process.env.AUTH_MAIL ?? "admin@admin.com";
+const AUTH_PASS = process.env.AUTH_PASS ?? "12345678";
+
 const dir = [join(__dirname, "dist"), join(__dirname, "..", "dist")].find((i) =>
   existsSync(i)
 );
@@ -33,9 +36,11 @@ const start = (args) => {
     port: HTTP_PORT,
     publicSite: PUBLIC_URL,
     name: QR_FILE,
+    mail: AUTH_MAIL,
+    password: AUTH_PASS,
     ...args,
   };
-  const { port, publicSite, name } = injectArgs;
+  const { port, publicSite } = injectArgs;
 
   const banner = () => {
     console.log(``);

@@ -15,7 +15,7 @@ export default component$(() => {
           }
         >
           <div class="text-start mt-10 p-10 m-10">
-            <h1 class="w-full text-start text-6xl font-bold text-black leading-none">
+            <h1 class="w-full text-start text-5xl font-bold text-black leading-none">
               Crear chatbot <br /> <span class="text-primary">WhatsApp</span>
               <br /> en minutos
             </h1>
@@ -38,7 +38,7 @@ export default component$(() => {
               </a>
             </div>
           </div>
-          <Logo width="w-[70%]" />
+          <Logo width="w-[65%]" />
         </div>
       </div>
     </>

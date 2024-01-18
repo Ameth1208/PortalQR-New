@@ -1,6 +1,6 @@
 import { NavLink, NavLinkIcon } from "../navlink/navlink";
 import { routesNavBar } from "~/data/navbarQR";
-import { UserBold } from "../icons/icons";
+import { Discord, UserBold } from "../icons/icons";
 import { Logo } from "../logo/logo";
 import { component$ } from "@builder.io/qwik";
 
@@ -8,8 +8,8 @@ import "./navbar.css";
 
 export const NavBar = component$(
   (props: { mobile?: boolean; login?: boolean }) => {
-    const linkPages = "https://bot-whatsapp.netlify.app/";
 
+    const linkPages = "https://bot-whatsapp.netlify.app/";
     const ContentNav = () => {
       return (
         <>
@@ -23,9 +23,11 @@ export const NavBar = component$(
                 />
               ))}
           </div>
-          <div class={""}>
+          {props.login ? (
             <NavLinkIcon text="Login" link="/login" icon={<UserBold />} />
-          </div>
+          ) : (
+            <NavLinkIcon text="Discord" link="https://discord.com/channels/915193197645402142/1079681562074951750" icon={<Discord />} external={true} />
+          )}
         </>
       );
     };
@@ -33,8 +35,8 @@ export const NavBar = component$(
     return (
       <nav
         class={`${props.login
-            ? "flex w-full justify-between items-center pr-10 pl-10 pt-3"
-            : "navbar"
+          ? "flex w-full justify-between items-center pr-10 pl-10 pt-3"
+          : "navbar"
           }   pb-3 border-b border-gray-100 `}
       >
         <div>
@@ -42,9 +44,8 @@ export const NavBar = component$(
             class={
               "text-decoration-none flex justify-center items-center p-1 gap-2"
             }
-            href={`${linkPages}`}
-            target="_blank"
-            title="bot-whatsapp"
+            onClick$={() => (window.location.href = "/")}
+            title="home"
           >
             <Logo />
             <h1 class={"text-base font-semibold m-0"}>Chat Bot</h1>
