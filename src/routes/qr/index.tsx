@@ -5,21 +5,24 @@ import { LoginData, credentials } from "~/data/login.data";
 
 export default component$(() => {
   const credential = useStore(credentials);
-  useTask$((): any => {
-    const item = localStorage.getItem("auth");
 
-    if (item === null) {
-      window.location.href = "/";
-      return null;
+  useTask$((): any => {
+    if (typeof window !== "undefined") {
+      const item = window.localStorage.getItem("auth");
+
+      if (item === null) {
+        window.location.href = "/";
+        return null;
+      }
+
+      const value: LoginData = JSON.parse(item);
+      if (
+        value.email !== credential.email &&
+        value.password !== credential.password
+      ) {
+        window.location.href = "/";
+      }
     }
-    const value: LoginData = JSON.parse(item);
-    if (
-      value.email !== credential.email &&
-      value.password !== credential.password
-    ) {
-      window.location.href = "/";
-    }
-    return value;
   });
   return (
     <div class="w-full h-full flex justify-center items-center">

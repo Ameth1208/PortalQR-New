@@ -35,7 +35,7 @@ const start = (args) => {
     name: QR_FILE,
     ...args,
   };
-  const { port, publicSite } = injectArgs;
+  const { port, publicSite, name } = injectArgs;
 
   const banner = () => {
     console.log(``);
