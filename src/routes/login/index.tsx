@@ -3,6 +3,9 @@ import { $, component$, useStore } from "@builder.io/qwik";
 import { Logo } from "~/components/logo/logo";
 // import './styles.css'
 import { TextInput } from "~/components/text-input/text-input";
+import { credentials } from "~/data/login.data";
+
+
 
 interface LoginFormState {
   email: string;
@@ -15,16 +18,26 @@ export default component$(() => {
     password: "",
   });
 
-  const handleSubmit = $((event: Event) => {
-    event.preventDefault();
-    console.log(state);
+  const credential = useStore(credentials);
 
-    if (
-      state.email === import.meta.env.AUTH_MAIL &&
-      state.password === import.meta.env.AUTH_PASS
-    ) {
-      window.location.href = "/qr";
+  const handleSubmit = $((event: Event) => {
+    try {
+
+      event.preventDefault();
+      if (
+        state.email === credential.email &&
+        state.password === credential.password
+      ) {
+
+
+        localStorage.setItem("auth", JSON.stringify(credential));
+        window.location.href = "/qr";
+      }
+    } catch (e) {
+      console.log(e);
+
     }
+
   });
 
   return (

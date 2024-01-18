@@ -54,10 +54,10 @@ git clone https://github.com/Ameth1208/PortalQR.git
 npm i
 ```
 
-Para compilar el proyecto y generar la versión de producción, se utiliza el comando `npm run build.full.` Este comando genera una carpeta llamada `portalQR`:
+Para compilar el proyecto y generar la versión de producción, se utiliza el comando `npm run bfull.` Este comando genera una carpeta llamada `portalQR`:
 
 ```shell
-npm run build.full # or `yarn build.full`
+npm run bfull # or `yarn bfull`
 ```
 
 - `./dist/`: Contiene todos los archivos y recursos necesarios para la visualización del proyecto. Aquí se encuentran los archivos HTML, CSS, JavaScript y otros recursos estáticos.

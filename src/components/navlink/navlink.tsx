@@ -5,7 +5,6 @@ import NavLinkProps from "~/interface/NavLink";
 export const NavLink = (props: NavLinkProps) => {
   return (
     <div class="navlink">
-      <div class={"icons"}>{props.icon}</div>
       <a href={props.link} target="_blank" title={props.text}>
         {props.text}
       </a>
