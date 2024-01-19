@@ -1,10 +1,18 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useClientEffect$ } from "@builder.io/qwik";
 
 import { Logo } from "~/components/logo/logo";
 
 import { NavBar } from "~/components/navbar/navbar";
 
 export default component$(() => {
+  useClientEffect$((): any => {
+    try {
+      localStorage.removeItem("auth");
+    } catch (e) {
+      console.error("Error al procesar los datos de autenticación:", e);
+    }
+  });
+
   return (
     <>
       <div class={"h-[100vh] m-0 p-0 flex flex-col"}>
