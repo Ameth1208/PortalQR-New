@@ -3,6 +3,7 @@ import { component$, useClientEffect$ } from "@builder.io/qwik";
 import { Logo } from "~/components/logo/logo";
 
 import { NavBar } from "~/components/navbar/navbar";
+import { ContentData } from "~/data/content.data";
 
 export default component$(() => {
   useClientEffect$((): any => {
@@ -38,7 +39,7 @@ export default component$(() => {
             <div class={"mt-5"}>
               <a
                 target="_blank"
-                href=""
+                href={ContentData.link.contact}
                 title=""
                 class={" bg-primary text-white py-2 px-4 rounded-full"}
               >
