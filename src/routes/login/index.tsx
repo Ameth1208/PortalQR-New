@@ -5,8 +5,6 @@ import { Logo } from "~/components/logo/logo";
 import { TextInput } from "~/components/text-input/text-input";
 import { credentials } from "~/data/login.data";
 
-
-
 interface LoginFormState {
   email: string;
   password: string;
@@ -22,22 +20,17 @@ export default component$(() => {
 
   const handleSubmit = $((event: Event) => {
     try {
-
       event.preventDefault();
       if (
         state.email === credential.email &&
         state.password === credential.password
       ) {
-
-
         localStorage.setItem("auth", JSON.stringify(credential));
         window.location.href = "/qr";
       }
     } catch (e) {
       console.log(e);
-
     }
-
   });
 
   return (
@@ -80,7 +73,7 @@ export default component$(() => {
             </div>
             <div class="mt-5">
               <button
-                class="py-2 px-4 bg-primary hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+                class="py-2 px-4 bg-primary hover:bg-btnHover focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
                 type="submit"
               >
                 Log in

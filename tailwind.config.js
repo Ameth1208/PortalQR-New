@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "#1e99df",
+        btnHover: "#1d4ed8",
       },
 
       borderWidth: {

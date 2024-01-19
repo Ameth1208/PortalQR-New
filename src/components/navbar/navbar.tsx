@@ -4,30 +4,26 @@ import { Discord, UserBold } from "../icons/icons";
 import { Logo } from "../logo/logo";
 import { component$ } from "@builder.io/qwik";
 
-import "./navbar.css";
-
 export const NavBar = component$(
   (props: { mobile?: boolean; login?: boolean }) => {
-
-    // const linkPages = "https://bot-whatsapp.netlify.app/";
     const ContentNav = () => {
       return (
         <>
           <div class={"grid grid-flow-col"}>
             {!props.login &&
               routesNavBar.map((route) => (
-                <NavLink
-                  key={route.text}
-                  text={route.text}
-                  link={route.link}
-
-                />
+                <NavLink key={route.text} text={route.text} link={route.link} />
               ))}
           </div>
           {props.login ? (
             <NavLinkIcon text="Login" link="/login" icon={<UserBold />} />
           ) : (
-            <NavLinkIcon text="Discord" link="" icon={<Discord />} external={true} />
+            <NavLinkIcon
+              text="Discord"
+              link=""
+              icon={<Discord />}
+              external={true}
+            />
           )}
         </>
       );
@@ -35,10 +31,11 @@ export const NavBar = component$(
 
     return (
       <nav
-        class={`${props.login
-          ? "flex w-full justify-between items-center pr-10 pl-10 pt-3"
-          : "navbar"
-          }   pb-3 border-b border-gray-100 `}
+        class={`${
+          props.login
+            ? "flex w-full justify-between items-center pr-10 pl-10 pt-3"
+            : "navbar"
+        }   pb-3 border-b border-gray-100 `}
       >
         <div>
           <a
